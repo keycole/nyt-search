@@ -1,0 +1,51 @@
+h1 {
+    font-family: 'Cantata One', serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#jumbo-header {
+    max-height: 200px;
+}
+
+#main-content {
+    margin-bottom: 20px;
+    min-height: 750px;
+}
+
+#search-header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#search-text {
+    margin-top: 5px;
+}
+
+#buttons {
+    margin-bottom: 10px;
+}
+
+#results-container {
+    margin-bottom: 20px;
+}
+#results-header {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+#results-list {
+    min-height: 75px;
+    margin-bottom: 20px;;
+}
+
+footer {
+    margin-top: 20px;
+}
