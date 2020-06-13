@@ -8,6 +8,7 @@ body {
 
 #jumbo-header {
     min-height: 200px;
+    overflow: auto;
 }
 
 #main-content {
