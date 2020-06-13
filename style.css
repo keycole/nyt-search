@@ -7,7 +7,7 @@ body {
 }
 
 #jumbo-header {
-    max-height: 200px;
+    min-height: 200px;
 }
 
 #main-content {
