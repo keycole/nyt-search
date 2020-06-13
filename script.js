@@ -69,12 +69,15 @@ function apiCall(URL, num) {
         var results = response.response.docs;
         //Use the Number of records input to generate a for loop that will dynamically generate results containers
         console.log('The response is ', response);
+        
         for (var i = 0; i < num; i++) {
             //Retrieve the result elements and use them to populate the generated page elements
             console.log('Main: ', results[i].headline.main)
             console.log('Byline: ', results[i].byline.original);
             console.log('Abstract', results[i].abstract);
             console.log('Pub Date', results[i].pub_date);
+            var newDate = moment(results[i].pub_date).format('MMMM DD YYYY');
+            console.log('The New Date = ', newDate);
 
             //Append the elements to the Results Container
          var cardContainer = $('<div>')
@@ -87,7 +90,9 @@ function apiCall(URL, num) {
              url.attr('href', results[i].web_url).appendTo(cardBody);
          var headline = $('<h5>');
              headline.attr('class', 'card-title').text(results[i].headline.main).appendTo(url);
-         var abstract = $('<p>');
+        var pubDate = $('<p>');
+             pubDate.attr('class', 'card-text').text('Pub Date: ' + newDate).appendTo(cardBody);
+        var abstract = $('<p>');
              abstract.attr('class', 'card-text').text(results[i].abstract).appendTo(cardBody);
          var section = $('<p>');
              section.attr('class', 'card-text').text('Section:' + results[i].section_name).appendTo(cardBody);
