@@ -95,7 +95,7 @@ function apiCall(URL, num) {
         var abstract = $('<p>');
              abstract.attr('class', 'card-text').text(results[i].abstract).appendTo(cardBody);
          var section = $('<p>');
-             section.attr('class', 'card-text').text('Section:' + results[i].section_name).appendTo(cardBody);
+             section.attr('class', 'card-text').text('Section: ' + results[i].section_name).appendTo(cardBody);
          var bylineContainer = $('<p>');
              bylineContainer.attr('class', 'card-text').appendTo(cardBody);
          var byline = $('<small>');
