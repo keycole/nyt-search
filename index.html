@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
-
 <body>
   <!--JUMBOTRON HEADER WITH APP TITLE-->
   <div class="jumbotron jumbotron-fluid text-center" id="jumbo-header">
@@ -28,7 +27,7 @@
   <!--MAIN CONTAINER HOLDING SEARCH AND RESULT DIVS-->
   <main id="main-content">
     <!--SEARCH INPUTS CONTAINER-->
-    <div class="container border border-secondary border-top-0 rounded">
+    <div class="container border border-secondary border-top-0 rounded" id="search-container">
       <section>
         <section class="row bg-secondary rounded" id="search-header">
           <div class="col-sm-10" id="search-text">
@@ -50,20 +49,12 @@
               <input class="form-control" type="date" id="form-start-year" value="" id="example-date-input">
             </div>
           </div>
-          <!--<div class="form-group">
-            <label for="formGroupExampleInput2">Start Year (Optional):</label>
-            <input type="text" class="form-control" id="form-start-year" placeholder="">
-          </div>-->
           <div class="form-group row">
             <label for="example-date-input" class="col-2 col-form-label">End Year (Optional):</label>
             <div class="col-10">
               <input class="form-control" type="date" id="form-end-year" value="" id="example-date-input">
             </div>
           </div>
-          <!--<div class="form-group">
-            <label for="formGroupExampleInput2">End Year (Optional):</label>
-            <input type="text" class="form-control" id="form-end-year" placeholder="">
-          </div>-->
         </form>
         <div id="buttons">
           <a class="btn btn-secondary btn-md" href="#" role="button" id="form-button-search"><i
@@ -79,11 +70,11 @@
     <div class="container border border-secondary border-top-0 rounded" id="results-container">
       <section>
         <section class="row bg-secondary rounded" id="results-header">
-          <div class="col-sm-10">
+          <div class="col-sm-12" id="results-container">
             <h5><i class="fas fa-th"></i> Top Articles</h5>
           </div>
         </section>
-        <div class="col-sm-10" id="results-list">
+        <div class="col-sm-12" id="results-list">
           <!--DYNAMIC SEARCH RESULTS APPEAR HERE-->
         </div>
       </section>

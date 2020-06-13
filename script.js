@@ -22,7 +22,8 @@ $('#form-button-search').on('click', function () {
     var startYr = $('#form-start-year').val();
     var startDate;
     if (startYr) {
-        startDate = '&startDate=' + startYr.toString().split('-').splitStart.join('');
+        console.log('startYr query Param', startYr.toString().split('-').join(''));
+        startDate = '&startDate=' + startYr.toString().split('-').join('');
         console.log('The startYr is: ' + startYr);
         console.log('The startDate is: ' + startDate);
         queryArray.push(startDate);
@@ -32,7 +33,7 @@ $('#form-button-search').on('click', function () {
     var endYr = $('#form-end-year').val();
     var endDate;
     if (endYr) {
-        endDate = '&endDate=' + endYr.toString().split('-').splitEnd.join('');
+        endDate = '&endDate=' + endYr.toString().split('-').join('');
         console.log('The endYr is: ' + endYr);
         console.log('The endDate is: ' + endDate);
         queryArray.push(endDate);
@@ -77,14 +78,34 @@ function apiCall(URL, num) {
             console.log('Image ', results[i].multimedia[0].url);
 
             //Append the elements to the Results Container
+         var cardContainer = $('<div>')
+             cardContainer.attr('class', 'card mb-3').appendTo('#results-list');
+         var cardInnerContainer = $('<div>');
+             cardInnerContainer.attr({class: 'row no-gutters', id: 'results-wrapper'}).appendTo(cardContainer);
+         var cardBody = $('<div>');
+             cardBody.attr('class', 'card-body').appendTo(cardInnerContainer);
+         var url = $('<a>');
+             url.attr('href', results[i].web_url).appendTo(cardBody);
+         var headline = $('<h5>');
+             headline.attr('class', 'card-title').text(results[i].headline.main).appendTo(url);
+         var abstract = $('<p>');
+             abstract.attr('class', 'card-text').text(results[i].abstract).appendTo(cardBody);
+         var section = $('<p>');
+             section.attr('class', 'card-text').text('Section:' + results[i].section_name).appendTo(cardBody);
+         var bylineContainer = $('<p>');
+             bylineContainer.attr('class', 'card-text').appendTo(cardBody);
+         var byline = $('<small>');
+             byline.attr('class', 'text-muted').text(results[i].byline.original).appendTo(bylineContainer);
         };
     });
 };
 
-// ADDITIONAL FUNCTIONS
-
 //Clear Function 
 //When Clear Button is clicked, clear all search fields and search results
-// $('#form-button-search').on('click', function() {
-
-// });
+$('#form-button-clear').on('click', function() {
+    $('#results-list').empty();
+    $('#form-search-term').val('');
+    $('#form-result-number').val('');
+    $('#form-start-year').val('');
+    $('#form-end-year').val('');
+});

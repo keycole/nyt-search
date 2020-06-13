@@ -31,8 +31,10 @@ body {
 }
 
 #results-container {
+    margin-top: 10px;
     margin-bottom: 20px;
 }
+
 #results-header {
     margin-top: 20px;
     margin-bottom: 10px;
