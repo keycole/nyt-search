@@ -16,6 +16,10 @@ $('#form-button-search').on('click', function () {
     //MAX RESULTS
     var maxNumber = Number($('#form-result-number').val()); //REQUIRED
     console.log('The maxNumber is: ' + maxNumber);
+    //Added default in case the user does not include add a value to the form
+    if (maxNumber !== false) {
+        maxNumber = 10;
+    };
 
     queryArray = [queryTerm];
 
