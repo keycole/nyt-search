@@ -14,10 +14,6 @@ $('#form-button-search').on('click', function () {
 
     //MAX RESULTS
     var maxNumber = Number($('#form-result-number').val()); //REQUIRED
-    //Added default in case the user does not include add a value to the form
-    if (maxNumber !== false) {
-        maxNumber = 10;
-    };
 
     queryArray = [queryTerm];
 
@@ -62,6 +58,7 @@ function apiCall(URL, num) {
     }).then(function (response) {
         var results = response.response.docs;
         //Use the Number of records input to generate a for loop that will dynamically generate results containers
+        
         for (var i = 0; i < num; i++) {
             //Retrieve the result elements and use them to populate the generated page elements
             var newDate = moment(results[i].pub_date).format('MMMM DD YYYY');
