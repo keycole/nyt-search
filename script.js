@@ -3,6 +3,7 @@ var apiKey = "&api-key=xu3AN0ZljaMEZMnlMGOszPWXqwlST71D";
 //When Search Button is clicked, initiate function
 $('#form-button-search').on('click', function () {
     event.preventDefault();
+    $('#results-list').empty();
     //IF THERE IS TIME: Validate that required inputs are present and valid
     //IF THERE IS TIME: If invalid, prompt the user to correct their errors
 
