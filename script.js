@@ -75,7 +75,6 @@ function apiCall(URL, num) {
             console.log('Byline: ', results[i].byline.original);
             console.log('Abstract', results[i].abstract);
             console.log('Pub Date', results[i].pub_date);
-            console.log('Image ', results[i].multimedia[0].url);
 
             //Append the elements to the Results Container
          var cardContainer = $('<div>')
