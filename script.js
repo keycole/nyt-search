@@ -19,33 +19,39 @@ $('#form-button-search').on('click', function () {
 
     //START DATE
     var startYr = $('#form-start-year').val();
+    console.log('This is the StarYr: ' + startYr);
     var startDate;
     if (startYr) {
-        startDate = '&startDate=' + startYr.toString().split('-').join('');
+        startDate = '&begin_date=' + startYr.toString().split('-').join('');
         queryArray.push(startDate);
+        console.log('This is the StartDate: ', startDate);
     };
 
     //END DATE
     var endYr = $('#form-end-year').val();
     var endDate;
     if (endYr) {
-        endDate = '&endDate=' + endYr.toString().split('-').join('');
+        endDate = '&end_date=' + endYr.toString().split('-').join('');
         queryArray.push(endDate);
+        console.log('This is the EndDate: ', endDate);
     };
 
     console.log('This is queryArray: ', queryArray);
+
     var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
+    
     function createQueryURL() {
         for (i = 0; i < queryArray.length; i++) {
             if (queryArray[i] !== '') {
                 queryURL += queryArray[i];
             };
         };
-        queryURL += apiKey;
+        queryURL += '&sort=newest' + apiKey;
         return;
     };
-
+    console.log('This is queryURL: ', queryURL);
     createQueryURL();
+
     //Initiate API call with queryURL and maxNumber parameters
     apiCall(queryURL, maxNumber);
 
