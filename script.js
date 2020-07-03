@@ -12,9 +12,22 @@ $('#form-button-search').on('click', function () {
     var term = $('#form-search-term').val(); //REQUIRED
     var queryTerm = '?query=' + term;
 
+    if(term===''){
+        $('#form-search-term').attr('placeholder', 'You must enter a search term!');
+        $('#form-search-term').on('keydown', function(){
+            location.reload();
+        })
+    }
+
     //MAX RESULTS
     var maxNumber = Number($('#form-result-number').val()); //REQUIRED
-
+    console.log('Max number = ', maxNumber);
+    if(maxNumber=='0'){
+        $('#form-result-number').attr('placeholder', 'You must enter a number between 1 - 10!');
+        $('#form-search-term').on('keydown', function(){
+            location.reload();
+        })
+    }
     queryArray = [queryTerm];
 
     //START DATE

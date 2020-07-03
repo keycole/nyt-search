@@ -1,9 +1,5 @@
 # New York Times Search
 
-
-## WORK STILL IN PROGRESS
-
-
 **Link to Published App:** https://keycole.github.io/nyt-search/
 
 ## Purpose
