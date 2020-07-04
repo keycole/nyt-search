@@ -4,14 +4,11 @@ var apiKey = "&api-key=xu3AN0ZljaMEZMnlMGOszPWXqwlST71D";
 $('#form-button-search').on('click', function () {
     event.preventDefault();
     $('#results-list').empty();
-    //IF THERE IS TIME: Validate that required inputs are present and valid
-    //IF THERE IS TIME: If invalid, prompt the user to correct their errors
 
     //collect variables for constructing the queryURL
     //SEARCH TERM
     var term = $('#form-search-term').val(); //REQUIRED
     var queryTerm = '?query=' + term;
-
     if(term===''){
         $('#form-search-term').attr('placeholder', 'You must enter a search term!');
         $('#form-search-term').on('keydown', function(){
@@ -24,10 +21,11 @@ $('#form-button-search').on('click', function () {
     console.log('Max number = ', maxNumber);
     if(maxNumber=='0'){
         $('#form-result-number').attr('placeholder', 'You must enter a number between 1 - 10!');
-        $('#form-search-term').on('keydown', function(){
+        $('#form-result-number').on('keydown', function(){
             location.reload();
         })
     }
+
     queryArray = [queryTerm];
 
     //START DATE
@@ -49,21 +47,21 @@ $('#form-button-search').on('click', function () {
         console.log('This is the EndDate: ', endDate);
     };
 
-    console.log('This is queryArray: ', queryArray);
-
     var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     
+    createQueryURL(queryArray, queryURL);
     function createQueryURL() {
-        for (i = 0; i < queryArray.length; i++) {
+        for (var i = 0; i < queryArray.length; i++) {
             if (queryArray[i] !== '') {
                 queryURL += queryArray[i];
             };
         };
         queryURL += '&sort=newest' + apiKey;
-        return;
+        console.log('The queryURL inside the for loop = ', queryURL);
+        return queryURL;
     };
+    
     console.log('This is queryURL: ', queryURL);
-    createQueryURL();
 
     //Initiate API call with queryURL and maxNumber parameters
     apiCall(queryURL, maxNumber);
